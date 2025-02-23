@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <h1>Rock Paper Scissors</h1>
         <div class="score-board">
-            <div id="user-label" class="badge">YOU</div>
-            <div id="computer-label" class="badge">COM</div>
-            <span id="user-score">0</span>:<span id="computer-score">0</span>
+            <div class="score">
+                <span>You</span>
+                <span id="user-score">0</span>
+            </div>
+            <div class="score">
+                <span>Computer</span>
+                <span id="computer-score">0</span>
+            </div>
         </div>
         
         <div class="choices">
             <div class="choice" id="r">
-                <img src="https://img.icons8.com/ios/100/000000/rock.png" alt="Rock">
+                <i class="fas fa-hand-rock" style="color: white;"></i>
             </div>
             <div class="choice" id="p">
-                <img src="https://img.icons8.com/ios/100/000000/hand.png" alt="Paper">
+                <i class="fas fa-file" style="color: white;"></i>
             </div>
             <div class="choice" id="s">
-                <img src="https://img.icons8.com/ios/100/000000/scissors.png" alt="Scissors">
+                <i class="fas fa-hand-scissors" style="color: white;"></i>
             </div>
         </div>
 
-        <p id="action-message">Make your move</p>
-        <div class="result" id="result"></div>
+        <div class="result" id="result">Make your move</div>
     </div>
 
     <script src="app.js"></script>
 </body>
-</html> 
+</html>

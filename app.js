@@ -2,18 +2,9 @@ const choices = document.querySelectorAll('.choice');
 const userScoreSpan = document.getElementById('user-score');
 const computerScoreSpan = document.getElementById('computer-score');
 const resultDiv = document.getElementById('result');
-const actionMessage = document.getElementById('action-message');
 
 let userScore = 0;
 let computerScore = 0;
-
-// Load scores from localStorage
-if(localStorage.getItem('scores')) {
-    const scores = JSON.parse(localStorage.getItem('scores'));
-    userScore = scores.user;
-    computerScore = scores.computer;
-    updateScores();
-}
 
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
@@ -42,15 +33,11 @@ function getWinner(user, computer) {
 
 function showResult(user, computer, winner) {
     const choices = {
-        'r': 'Rock 🪨',
-        'p': 'Paper 📄',
-        's': 'Scissors ✂️'
+        'r': 'Rock',
+        'p': 'Paper',
+        's': 'Scissors'
     };
 
-    resultDiv.className = '';
-    resultDiv.classList.add(winner === 'user' ? 'win' : 
-                          winner === 'computer' ? 'lose' : 'draw');
-    
     if (winner === 'user') {
         userScore++;
         resultDiv.innerHTML = `${choices[user]} beats ${choices[computer]}! You win! 🎉`;
@@ -62,17 +49,9 @@ function showResult(user, computer, winner) {
     }
     
     updateScores();
-    saveScores();
 }
 
 function updateScores() {
     userScoreSpan.textContent = userScore;
     computerScoreSpan.textContent = computerScore;
 }
-
-function saveScores() {
-    localStorage.setItem('scores', JSON.stringify({
-        user: userScore,
-        computer: computerScore
-    }));
-} 
